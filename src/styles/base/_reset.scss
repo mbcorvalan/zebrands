@@ -1,4 +1,4 @@
-/*==============================================================================
+/*
   File: reset.scss
   Description: This file provides a CSS reset to ensure consistency across 
                different browsers by removing default styling for various HTML 
@@ -13,8 +13,7 @@
     displayed as blocks.
   - Removes default list styles for `ol` and `ul`.
   - Collapses table borders and removes default spacing.
-
-==============================================================================*/
+*/
 
 * {
     margin: 0;

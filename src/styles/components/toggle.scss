@@ -1,0 +1,54 @@
+/*==============================================================================
+  File: toggle.scss
+  Description: This file styles a custom toggle switch component.
+==============================================================================*/
+
+.toggle {
+    width: 4rem;
+    height: 2rem;
+    position: relative;
+}
+
+.toggle>fieldset {
+    height: 2rem;
+    width: 5rem;
+    padding: 0;
+    border: none;
+    border-radius: 1rem;
+}
+
+.toggle__switch>input {
+    display: none;
+}
+
+.toggle__switch>input:checked+.toggle__slider {
+    background-color: red;
+}
+
+.toggle__switch>input:checked+.toggle__slider::before {
+    transform: translateX(2rem);
+}
+
+.toggle__slider::before {
+    position: absolute;
+    content: "";
+    height: 1.5rem;
+    width: 1.5rem;
+    left: 0.25rem;
+    bottom: 0.25rem;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform 200ms ease-in-out;
+}
+
+.toggle__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 2rem;
+    background-color: blue;
+    transition: background 200ms ease-in-out;
+}

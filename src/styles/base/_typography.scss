@@ -1,0 +1,27 @@
+/*==============================================================================
+  File: typography.scss
+  Description: This file defines the primary typography settings for the project.
+               The Roboto font is imported from Google Fonts and set as the 
+               primary font for the project.
+
+  Font Import:
+  The following Google Fonts import URL includes multiple font weights and 
+  styles for Roboto, allowing flexibility in typography design.
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;
+              0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;
+              1,900&display=swap');
+
+  Base Typography:
+  The base font size for the project is set to 10px, allowing for easy 
+  calculations using rem units. The primary font-family is set to the 
+  `$primary-font` variable, which should be defined in the project's variables 
+  file (e.g., _variables.scss) and should reference 'Roboto' or any desired font.
+==============================================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html {
+    font-size: 10px;
+    font-family: $primary-font;
+}

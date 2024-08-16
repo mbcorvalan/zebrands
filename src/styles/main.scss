@@ -1,0 +1,40 @@
+/*==============================================================================
+  File: main.scss
+  Description: This file centralizes the imports of all SCSS files following 
+               the 7-1 folder structure pattern.
+
+               The 7-1 pattern divides the code into 7 primary folders and 
+               one 'main.scss' file to import them all.
+
+               Folders used:
+               1. base/      - Global settings (reset, typography, etc.)
+               2. components/ - Small reusable components (buttons, cards, etc.)
+               3. layout/    - Layout structure definitions (header, footer, grid, etc.)
+               4. pages/     - Page-specific styles
+               5. themes/    - Project themes (colors, dark/light mode, etc.)
+               6. abstracts/ - Mixins, functions, variables, and other global helpers
+               7. vendors/   - Third-party styles or libraries
+
+  Implementation: This project uses the 7-1 structure to keep the code 
+                  organized and scalable.
+==============================================================================*/
+
+// Abstracts
+@import 'abstract/variables';
+@import 'abstract/mixins';
+
+// Vendors
+
+// Base
+@import 'base/reset';
+@import 'base/typography';
+
+// Layout
+
+// Components
+@import 'components/navbar';
+@import 'components/toggle';
+
+// Pages
+
+// States

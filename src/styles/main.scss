@@ -7,13 +7,13 @@
                one 'main.scss' file to import them all.
 
                Folders used:
-               1. base/      - Global settings (reset, typography, etc.)
-               2. components/ - Small reusable components (buttons, cards, etc.)
-               3. layout/    - Layout structure definitions (header, footer, grid, etc.)
-               4. pages/     - Page-specific styles
-               5. themes/    - Project themes (colors, dark/light mode, etc.)
-               6. abstracts/ - Mixins, functions, variables, and other global helpers
-               7. vendors/   - Third-party styles or libraries
+                  1. abstracts/ - Mixins, functions, variables, and other global helpers
+                  2. vendors/   - Third-party styles or libraries
+                  3. base/      - Global settings (reset, typography, etc.)
+                  4. layout/    - Layout structure definitions (header, footer, grid, etc.)
+                  5. components/ - Small reusable components (buttons, cards, etc.)
+                  6. pages/     - Page-specific styles
+                  7. themes/    - Project themes (colors, dark/light mode, etc.)
 
   Implementation: This project uses the 7-1 structure to keep the code 
                   organized and scalable.
@@ -34,7 +34,13 @@
 // Components
 @import 'components/navbar';
 @import 'components/toggle';
+@import 'components/footer';
+@import 'components/mainTitle';
+@import 'components/button';
 
 // Pages
+@import 'pages/home';
+@import 'pages/notFound';
 
-// States
+//themes
+@import 'themes/themes';

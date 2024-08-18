@@ -1,0 +1,14 @@
+:root {
+  --background-color: #{$cloudy-white};
+  --main-title-color: #{$deep-navy-light};
+}
+
+[data-theme="dark"] {
+  --background-color: #{$midnight-black};
+  --main-title-color: #{$pure-white-dark};
+}
+
+[data-theme="light"] {
+  --background-color: #{$cloudy-white};
+  --main-title-color: #{$deep-navy-light};
+}

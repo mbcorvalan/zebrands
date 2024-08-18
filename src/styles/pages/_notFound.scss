@@ -1,0 +1,18 @@
+.notFound {
+  &__wrapper {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    padding: 2rem;
+
+    @include md {
+      padding: 4rem;
+    }
+
+    @include lg {
+      padding: 6rem;
+    }
+  }
+}

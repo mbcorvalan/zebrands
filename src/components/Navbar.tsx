@@ -5,6 +5,7 @@ import image768w from '../assets/WEB-ZEB-05-1-768x218.png';
 import image1024w from '../assets/WEB-ZEB-05-1-1024x291.png';
 import image1536w from '../assets/WEB-ZEB-05-1-1536x437.png';
 import image1761w from '../assets/WEB-ZEB-05-1.png';
+import { LOGO_ALT } from '../constants/text';
 
 
 export default function Navbar() {
@@ -12,7 +13,7 @@ export default function Navbar() {
     <nav className="navbar">
       <img
         src={image127w}
-        alt="zebrabd logo"
+        alt={LOGO_ALT}
         className="navbar__logo"
         loading="lazy"
         srcSet={`

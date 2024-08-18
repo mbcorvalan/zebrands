@@ -22,7 +22,7 @@
 }
 
 .toggle__switch>input:checked+.toggle__slider {
-    background-color: red;
+    background-color: $navy-shadow-dark;
 }
 
 .toggle__switch>input:checked+.toggle__slider::before {
@@ -49,6 +49,6 @@
     right: 0;
     bottom: 0;
     border-radius: 2rem;
-    background-color: blue;
+    background-color: $slate-gray;
     transition: background 200ms ease-in-out;
 }

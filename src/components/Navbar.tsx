@@ -1,4 +1,6 @@
 import Toggle from './Toggle';
+import { toggleTheme } from '../redux/reducers/themeReducer';
+import { RootState } from '../redux/store/store';
 import image127w from '../assets/WEB-ZEB-05-1-127x36.png';
 import image300w from '../assets/WEB-ZEB-05-1-300x85.png';
 import image768w from '../assets/WEB-ZEB-05-1-768x218.png';
@@ -26,7 +28,12 @@ export default function Navbar() {
       `}
         sizes="(max-width: 1024px) 100vw, 1024px"
       />
-      <Toggle />
+      <Toggle
+        selector={(state: RootState) => state.theme.theme}
+        toggleAction={toggleTheme}
+        checkedValue="dark"
+        name="theme"
+      />
     </nav>
   );
 }

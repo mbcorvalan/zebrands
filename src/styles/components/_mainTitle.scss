@@ -2,15 +2,10 @@
   font-size: 2rem;
   text-align: center;
   color: var(--main-title-color);
-  padding: 2rem;
+  padding: 2.5rem;
 
   @include md {
     font-size: 4rem;
-    padding: 4rem;
-  }
-
-  @include lg {
-    padding: 6rem;
   }
 
 }

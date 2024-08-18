@@ -2,7 +2,18 @@
   &__wrapper {
     background-color: var(--background-color);
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     min-height: 100vh;
+    padding: 1rem;
+
+    @include md {
+      padding: 4rem;
+    }
+
+    @include lg {
+      padding: 6rem;
+    }
   }
 }

@@ -4,9 +4,6 @@ import NotFound from '../pages/notFound';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-
-
-
 /**
  * Application router component that defines the route structure.
  * @returns {JSX.Element} The router component.

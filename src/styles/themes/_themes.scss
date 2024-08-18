@@ -1,14 +1,20 @@
 :root {
   --background-color: #{$cloudy-white};
   --main-title-color: #{$deep-navy-light};
+  --background-searchTerm: #{$pure-white-dark};
+  --searchTerm-text: #{$stormy-blue};
 }
 
 [data-theme="dark"] {
   --background-color: #{$midnight-black};
   --main-title-color: #{$pure-white-dark};
+  --background-searchTerm: #{$navy-shadow-dark};
+  --searchTerm-text: #{$pure-white-dark};
 }
 
 [data-theme="light"] {
   --background-color: #{$cloudy-white};
   --main-title-color: #{$deep-navy-light};
+  --background-searchTerm: #{$pure-white-dark};
+  --searchTerm-text: #{$stormy-blue};
 }

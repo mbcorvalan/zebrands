@@ -2,6 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from '../reducers/themeReducer';
 import searchReducer from '../reducers/searchTermReducer';
 import usersReducer from '../reducers/fetchUsersReducer';
+import reposSlice from '../reducers/fetchRepoReducer';
+import querySlice from '../reducers/queryReducer';
+
 
 
 const store = configureStore({
@@ -9,6 +12,8 @@ const store = configureStore({
     theme: themeReducer,
     search: searchReducer,
     users: usersReducer,
+    repos: reposSlice,
+    query: querySlice,
   },
 });
 

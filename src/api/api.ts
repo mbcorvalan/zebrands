@@ -145,7 +145,6 @@ interface GitHubRepoSearchResponse {
 export const getGitHubUser = async (
 	query: string
 ): Promise<GitHubSearchResponse> => {
-	console.log(query);
 	const url = `${import.meta.env.VITE_BASE_URL}users?q=${query}`;
 
 	try {
@@ -157,7 +156,7 @@ export const getGitHubUser = async (
 	}
 };
 
-export const searchGitHubRepositories = async (
+export const getGitHubRepositories = async (
 	query: string
 ): Promise<GitHubRepoSearchResponse> => {
 	const url = `${import.meta.env.VITE_BASE_URL}repositories?q=${query}`;

@@ -30,15 +30,15 @@ interface GitHubSearchResponse {
 }
 
 interface UsersState {
-  data: GitHubUser[];
-  isLoading: boolean;
-  error: string | null;
+  dataUsers: GitHubUser[];
+  isLoadingUsers: boolean;
+  errorUsers: string | null;
 }
 
 const initialState: UsersState = {
-  data: [],
-  isLoading: false,
-  error: null,
+  dataUsers: [],
+  isLoadingUsers: false,
+  errorUsers: null,
 };
 
 export const fetchGitHubUsers = createAsyncThunk<GitHubSearchResponse, string>(
@@ -54,27 +54,27 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     resetUsers(state) {
-      state.data = [];
-      state.error = null;
+      state.dataUsers = [];
+      state.errorUsers = null;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchGitHubUsers.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
+        state.isLoadingUsers = true;
+        state.errorUsers = null;
       })
       .addCase(
         fetchGitHubUsers.fulfilled,
         (state, action: PayloadAction<GitHubSearchResponse>) => {
-          state.data = action.payload.items;
-          state.isLoading = false;
-          state.error = null;
+          state.dataUsers = action.payload.items;
+          state.isLoadingUsers = false;
+          state.errorUsers = null;
         }
       )
       .addCase(fetchGitHubUsers.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error.message || 'Failed to fetch users';
+        state.isLoadingUsers = false;
+        state.errorUsers = action.error.message || 'Failed to fetch users';
       });
   },
 });

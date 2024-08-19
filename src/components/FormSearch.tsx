@@ -2,27 +2,35 @@ import { FaUser } from "react-icons/fa";
 import { FaBox } from "react-icons/fa";
 import { useState } from "react";
 import Toggle from './Toggle';
-import useFetchGitHubUsers from '../hooks/useFetchGitHubUsers';
+import useFetchGitHubData from '../hooks/useFetchGitHubData';
 import { toggleSearchTerm } from '../redux/reducers/searchTermReducer';
-import { RootState } from '../redux/store/store';
-import { useSelector } from 'react-redux';
+import { setQuery } from '../redux/reducers/queryReducer';
+import { RootState, AppDispatch } from '../redux/store/store';
+import { useSelector, useDispatch } from 'react-redux';
 import useDebounce from "../hooks/useDebounce";
 
 export default function FormSearch() {
+  const dispatch = useDispatch<AppDispatch>();
   const searchTerm = useSelector((state: RootState) => state.search.searchTerm);
-  const [query, setQuery] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
-  const debouncedQuery = useDebounce(query, 1000); // 500ms debounce delay
+  const debouncedQuery = useDebounce(inputValue, 1000); // 1000ms debounce delay
 
-  useFetchGitHubUsers(debouncedQuery);
+  useFetchGitHubData(debouncedQuery);
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
-    setQuery(value);
+    setInputValue(value);
+    dispatch(setQuery(value));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
   };
 
   return (
-    <form className="search-form__wrapper">
+    <form onSubmit={handleSubmit} className="search-form__wrapper">
       <div className="search-form__icon-left" role="img" aria-label={searchTerm === "user" ? "User icon" : "Repository icon"}>
         {searchTerm === "user" ? <FaUser /> : <FaBox />}
       </div>
@@ -34,6 +42,7 @@ export default function FormSearch() {
         placeholder="Search..."
         aria-label="Search input"
         onChange={handleChange}
+        value={inputValue}
       />
       <div className="search-form__toggle">
         <Toggle

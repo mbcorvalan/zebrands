@@ -13,7 +13,7 @@ export default function AppRouter(): JSX.Element {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/zeBrands' element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

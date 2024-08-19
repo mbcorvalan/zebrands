@@ -1,14 +1,25 @@
 import { FaUser } from "react-icons/fa";
 import { FaBox } from "react-icons/fa";
+import { useState } from "react";
 import Toggle from './Toggle';
+import useFetchGitHubUsers from '../hooks/useFetchGitHubUsers';
 import { toggleSearchTerm } from '../redux/reducers/searchTermReducer';
 import { RootState } from '../redux/store/store';
 import { useSelector } from 'react-redux';
-
+import useDebounce from "../hooks/useDebounce";
 
 export default function FormSearch() {
-
   const searchTerm = useSelector((state: RootState) => state.search.searchTerm);
+  const [query, setQuery] = useState('');
+
+  const debouncedQuery = useDebounce(query, 1000); // 500ms debounce delay
+
+  useFetchGitHubUsers(debouncedQuery);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.trim();
+    setQuery(value);
+  };
 
   return (
     <form className="search-form__wrapper">
@@ -22,6 +33,7 @@ export default function FormSearch() {
         className="search-form__input"
         placeholder="Search..."
         aria-label="Search input"
+        onChange={handleChange}
       />
       <div className="search-form__toggle">
         <Toggle

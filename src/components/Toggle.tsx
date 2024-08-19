@@ -14,7 +14,7 @@ const Toggle: React.FC<ToggleProps> = ({ selector, toggleAction, checkedValue, n
   const dispatch = useDispatch();
 
   return (
-    <form className="toggle">
+    <div className="toggle">
       <fieldset>
         <legend className="toggle__label sr-only"></legend>
         <label className="toggle__switch">
@@ -27,7 +27,7 @@ const Toggle: React.FC<ToggleProps> = ({ selector, toggleAction, checkedValue, n
           <span className="toggle__slider"></span>
         </label>
       </fieldset>
-    </form>
+    </div>
   );
 };
 

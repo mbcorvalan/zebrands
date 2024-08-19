@@ -1,6 +1,11 @@
 import ClipLoader from "react-spinners/ClipLoader";
 
-export default function Loading() {
+/**
+ * A functional component that renders a loading spinner using the ClipLoader.
+ *
+ * @returns {JSX.Element} The rendered loading spinner component.
+ */
+export default function Loading(): JSX.Element {
   return (
     <ClipLoader
       color="#0079FF"

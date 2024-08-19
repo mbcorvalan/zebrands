@@ -4,7 +4,14 @@ import Loading from './Loading';
 import DisplayItemUser from './DisplayItemUser';
 import DisplayItemRepo from './DisplayItemRepo';
 
-export default function DisplaySearch() {
+/**
+ * A functional component that displays search results for users or repositories
+ * based on the search term. It handles loading states, errors, and displaying
+ * the appropriate content.
+ *
+ * @returns {JSX.Element} The rendered component displaying search results.
+ */
+export default function DisplaySearch(): JSX.Element {
   const { dataUsers, isLoadingUsers, errorUsers } = useSelector(
     (state: RootState) => state.users
   );
@@ -16,7 +23,12 @@ export default function DisplaySearch() {
   const searchTerm = useSelector((state: RootState) => state.search.searchTerm);
   const query = useSelector((state: RootState) => state.query.query);
 
-  const renderContent = () => {
+  /**
+   * Renders the appropriate content based on the search term and data states.
+   *
+   * @returns {JSX.Element} The content to be displayed.
+   */
+  const renderContent = (): JSX.Element => {
     if (searchTerm === 'user') {
       if (isLoadingUsers) {
         return <div className="search-display__loading"><Loading /></div>;

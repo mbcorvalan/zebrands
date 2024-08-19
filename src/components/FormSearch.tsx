@@ -1,30 +1,47 @@
-import { FaUser } from "react-icons/fa";
-import { FaBox } from "react-icons/fa";
 import { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { FaUser, FaBox } from "react-icons/fa";
 import Toggle from './Toggle';
 import useFetchGitHubData from '../hooks/useFetchGitHubData';
 import { toggleSearchTerm } from '../redux/reducers/searchTermReducer';
 import { setQuery } from '../redux/reducers/queryReducer';
 import { RootState, AppDispatch } from '../redux/store/store';
-import { useSelector, useDispatch } from 'react-redux';
 import useDebounce from "../hooks/useDebounce";
 
-export default function FormSearch() {
+/**
+ * A functional component that renders a search form for GitHub users or repositories.
+ * It includes an input field with debounced search functionality and a toggle switch
+ * to change between user and repository search modes.
+ *
+ * @returns {JSX.Element} The rendered search form component.
+ */
+export default function FormSearch(): JSX.Element {
   const dispatch = useDispatch<AppDispatch>();
   const searchTerm = useSelector((state: RootState) => state.search.searchTerm);
   const [inputValue, setInputValue] = useState('');
 
-  const debouncedQuery = useDebounce(inputValue, 1000); // 1000ms debounce delay
+  // Debounce the search query to minimize unnecessary API calls
+  const debouncedQuery = useDebounce(inputValue, 1000);
 
+  // Fetch GitHub data based on the debounced query
   useFetchGitHubData(debouncedQuery);
 
-
+  /**
+   * Handles changes in the input field and updates the query state.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e - The input change event.
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
     setInputValue(value);
     dispatch(setQuery(value));
   };
 
+  /**
+   * Prevents the default form submission behavior.
+   *
+   * @param {React.FormEvent<HTMLFormElement>} e - The form submit event.
+   */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };

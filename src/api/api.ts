@@ -1,5 +1,9 @@
+// Import axios for HTTP requests
 import axios from 'axios';
 
+/**
+ * Interface representing a GitHub user.
+ */
 interface GitHubUser {
 	login: string;
 	id: number;
@@ -22,12 +26,18 @@ interface GitHubUser {
 	score: number;
 }
 
+/**
+ * Interface representing the response structure for a GitHub user search.
+ */
 interface GitHubSearchResponse {
 	total_count: number;
 	incomplete_results: boolean;
 	items: GitHubUser[];
 }
 
+/**
+ * Interface representing a GitHub repository.
+ */
 interface GitHubRepository {
 	id: number;
 	node_id: string;
@@ -136,12 +146,22 @@ interface GitHubRepository {
 	score: number;
 }
 
+/**
+ * Interface representing the response structure for a GitHub repository search.
+ */
 interface GitHubRepoSearchResponse {
 	total_count: number;
 	incomplete_results: boolean;
 	items: GitHubRepository[];
 }
 
+/**
+ * Fetches GitHub users based on the search query.
+ *
+ * @param {string} query - The search query string.
+ * @returns {Promise<GitHubSearchResponse>} - A promise that resolves to the GitHub user search response.
+ * @throws {Error} - Throws an error if the API request fails.
+ */
 export const getGitHubUser = async (
 	query: string
 ): Promise<GitHubSearchResponse> => {
@@ -156,6 +176,13 @@ export const getGitHubUser = async (
 	}
 };
 
+/**
+ * Fetches GitHub repositories based on the search query.
+ *
+ * @param {string} query - The search query string.
+ * @returns {Promise<GitHubRepoSearchResponse>} - A promise that resolves to the GitHub repository search response.
+ * @throws {Error} - Throws an error if the API request fails.
+ */
 export const getGitHubRepositories = async (
 	query: string
 ): Promise<GitHubRepoSearchResponse> => {

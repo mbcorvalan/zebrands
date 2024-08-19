@@ -9,8 +9,15 @@ import image1536w from '../assets/WEB-ZEB-05-1-1536x437.png';
 import image1761w from '../assets/WEB-ZEB-05-1.png';
 import { LOGO_ALT } from '../constants/text';
 
+/**
+ * A functional component that renders the navigation bar of the application.
+ * It includes a responsive logo image and a theme toggle switch.
+ *
+ * @returns {JSX.Element} The rendered navbar component.
+ */
 
-export default function Navbar() {
+
+export default function Navbar(): JSX.Element {
   return (
     <nav className="navbar">
       <img
